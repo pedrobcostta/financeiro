@@ -46,19 +46,23 @@ const Index = () => {
   const balance = totalIncome - totalExpenses;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
-        <h1 className="text-3xl font-bold text-gray-900">Dashboard Financeiro</h1>
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
+      <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Dashboard Financeiro</h1>
         
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <BalanceCard title="Saldo Atual" balance={balance} />
           <BalanceCard title="Receitas" balance={totalIncome} />
           <BalanceCard title="Despesas" balance={-totalExpenses} />
         </div>
 
-        <div className="grid grid-cols-5 gap-4">
-          <ExpenseChart data={mockExpenseData} />
-          <RecentTransactions transactions={mockTransactions} />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
+          <div className="col-span-1 lg:col-span-2">
+            <ExpenseChart data={mockExpenseData} />
+          </div>
+          <div className="col-span-1 lg:col-span-3">
+            <RecentTransactions transactions={mockTransactions} />
+          </div>
         </div>
       </div>
     </div>

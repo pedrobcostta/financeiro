@@ -16,7 +16,7 @@ interface RecentTransactionsProps {
 
 export function RecentTransactions({ transactions }: RecentTransactionsProps) {
   return (
-    <Card className="col-span-3">
+    <Card>
       <CardHeader>
         <CardTitle>Transações Recentes</CardTitle>
       </CardHeader>
@@ -25,7 +25,7 @@ export function RecentTransactions({ transactions }: RecentTransactionsProps) {
           {transactions.map((transaction) => (
             <div
               key={transaction.id}
-              className="flex items-center justify-between p-4 border rounded-lg hover:bg-slate-50 transition-colors"
+              className="flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg hover:bg-slate-50 transition-colors space-y-2 sm:space-y-0"
             >
               <div className="flex items-center space-x-4">
                 <div className={`p-2 rounded-full ${
